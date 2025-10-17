@@ -1,0 +1,35 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: main
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+      - name: Build project       
+        run: npm run build                                      
+      - name: Lint code
+        run: npm run lint     
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifact-file
+          path: ./arti/
+      - name: Check the artifact files
+        run: |
+          ls -a 
