@@ -1,10 +1,11 @@
 import express from "express";
 import cors from "cors";
 import body from "body-parser";
+import { Server } from "http";
 
 const app = express();
 
-let server;
+let server: Server;
 
 // setup cors.
 
@@ -12,7 +13,7 @@ app.use(
   cors({
     origin: "*",
     credentials: true,
-    optionSuccessStatus: 200,
+    optionsSuccessStatus: 200,
   })
 );
 

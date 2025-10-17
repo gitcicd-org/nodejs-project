@@ -1,6 +1,7 @@
+import { Request, Response } from "express";
 import { httpResponse } from "../../lib/httpResponses";
 
-export async function getRecipe(req, res) {
+export async function getRecipe(req: Request, res: Response) {
 
   const { id } = req.params;
 
@@ -46,6 +47,7 @@ export async function getRecipe(req, res) {
     }, res);
 
   } catch (error) {
-    return httpResponse(500, error.message, null, res);
+    const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
+    return httpResponse(500, errorMessage, null, res);
   }
 }
