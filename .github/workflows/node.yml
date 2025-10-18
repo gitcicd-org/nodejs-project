@@ -1,5 +1,5 @@
 name: Node.js CI
-
+run-name: Node.js CI Workflow
 on:
   push:
     branches: main
@@ -26,10 +26,22 @@ jobs:
         run: npm run build   
     
       - name: List contents of dist folder
-        run: ls -alh dist/
+        run: ls dist/
 
       - name: List root directory contents
         run: ls
+#list of files in root directory after build
+# README.md
+# __tests__
+# babel.config.js
+# dist
+# jest.config.js
+# node_modules
+# package-lock.json
+# package.json
+# src
+# tsconfig.json
+
 
       # - name: Upload build artifacts
       #   uses: actions/upload-artifact@v4
