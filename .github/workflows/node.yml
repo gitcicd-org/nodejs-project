@@ -27,28 +27,32 @@ jobs:
     
       - name: List contents of dist folder
         run: ls dist/
+        #Output after running ls dist/
+        #  Run ls dist/
+        # __tests__
+        # src
 
       - name: List root directory contents
         run: ls
-#list of files in root directory after build
-# README.md
-# __tests__
-# babel.config.js
-# dist
-# jest.config.js
-# node_modules
-# package-lock.json
-# package.json
-# src
-# tsconfig.json
+        #list of files in root directory after build
+        # README.md
+        # __tests__
+        # babel.config.js
+        # dist
+        # jest.config.js
+        # node_modules
+        # package-lock.json
+        # package.json
+        # src
+        # tsconfig.json
 
 
-      # - name: Upload build artifacts
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: artifact-file
-      #     path: ./dist/
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifact-file #name of the artifact after upload
+          path: ./dist/  #this is the path from where runner going to take the files to upload as artifact
           
-      # - name: Check the artifact files
-      #   run: |
-      #     ls -a 
+      - name: Check the artifact file
+        run: |
+          ls -a 
